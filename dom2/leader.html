@@ -42,6 +42,7 @@
         #keypad>div{
            
             border-radius: 5px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
         }
         .orange{
             background-color: rgb(254, 195, 86);
@@ -71,10 +72,32 @@
             border-radius: 5px;
         }
         #input{
-            background-color: rgba(159, 159, 159, 0.805); 
+            background-color: rgba(224, 224, 224, 0.644); 
             height: 80px;
             width:80%;
             margin:auto;
+        }
+        /* small screen */
+        @media all and (min-width:240px) and (max-width:720px){
+            #main{
+                width: 80%;
+                height:70%;
+                
+            }
+            #heading{
+                font-size:120%;
+            }
+        }
+        /* large screen */
+
+        @media all and (min-width:721px) and (max-width:1020px){
+            #main{
+                width: 60%;
+                height:70%;
+            }
+            #heading{
+                font-size:120%;
+            }
         }
 
         
@@ -89,7 +112,7 @@
         <div class="font">MIN</div>
         <div class="font">MAX</div>
     </div>
-    <div> <h1>SCORE</h1>
+    <div> <h1 id="heading">SCORE</h1>
         <div><h1 id="input" ></h1></div>
         <div id="keypad">
             <div class="green">1</div>
@@ -101,9 +124,9 @@
             <div class="green">7</div>
             <div class="orange">8</div>
             <div class="green">9</div>
-            <div></div>
+            <div style="box-shadow: none;"></div>
             <div class="purple" id="zero">0</div>   
-            <div></div>     
+            <div style="box-shadow: none;"></div>     
         </div>
         <div id="enter">ENTER</div>
     </div>
