@@ -32,6 +32,7 @@
               height: 500px;
               text-align:center;
               box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+              padding-top: 2%;
                }
         #main>h1{   margin-top:10%;
                       height:60px;
@@ -116,9 +117,11 @@
         if(keys[i].innerHTML=="=")
         {
             calculate.addEventListener("click",function(){
-                let ans= eval(firstnum);
+                let ans=""
+                ans= eval(firstnum);
                 display.innerHTML=ans;
-                firstnum=ans;
+                if(ans=="") display.innerHTML="wrong value entered"
+                else firstnum=ans;
             })
     
         }
@@ -129,6 +132,13 @@
                 firstnum="";
             })
             
+        }
+        else if(keys[i].innerHTML=="x")
+        {
+            keys[i].addEventListener("click",function(){
+                firstnum +="*";
+                display.innerHTML=firstnum;
+            })
         }
         else 
         {
