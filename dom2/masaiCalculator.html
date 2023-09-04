@@ -117,11 +117,9 @@
         if(keys[i].innerHTML=="=")
         {
             calculate.addEventListener("click",function(){
-                let ans=""
-                ans= eval(firstnum);
+                let ans= eval(firstnum);
                 display.innerHTML=ans;
-                if(ans=="") display.innerHTML="wrong value entered"
-                else firstnum=ans;
+                firstnum=ans;
             })
     
         }
