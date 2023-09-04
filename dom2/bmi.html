@@ -49,10 +49,13 @@
     let cal=document.querySelector("button")
     let result
     cal.addEventListener("click",function(){
-        result=weight1.value/(height2.value * height2.value*0.01*0.01);
+        result=(weight1.value/(height2.value * height2.value*0.01*0.01)).toFixed(2);
         if(result<=18.4) document.querySelector("#display").innerText="Your BMI is "+result+" which means you are uderweight"
+
         else if(result >= 18.5 && result <= 24.9) document.querySelector("#display").innerText="Your BMI is "+result+" which means you are fit"
+
         else if(result >= 25 && result <=29.9) document.querySelector("#display").innerText="Your BMI is "+result+" which means you are overweight"
+
         else if(result >=30) document.querySelector("#display").innerText="Your BMI is "+result+" which means you are obsese"
 
     })
