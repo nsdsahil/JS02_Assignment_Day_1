@@ -13,6 +13,9 @@
         }
         input{
             width:10%;
+            height: 50px;
+            font-size: 15px ;
+            text-align:center;
         }
         div{
             margin-top: 2%;
@@ -24,13 +27,14 @@
     <div>
         <input type="number" id="num1" placeholder="Enter first Number">
         <input type="number" id="num2" placeholder="Enter second Number">
+        <div>
+            <button id="Add" onclick="add()">Add</button>
+            <button id="Subtract" onclick="subtract()">Subtract</button>
+            <button id="Multiply" onclick="multiply()" >Multiply</button>
+            <button id="Divide" onclick="divide()">Divide</button>
+        </div>
    </div>
-   <div>
-    <button id="Add" onclick="add()">Add</button>
-    <button id="Subtract" onclick="subtract()">Subtract</button>
-    <button id="Multiply" onclick="multiply()" >Multiply</button>
-    <button id="Divide" onclick="divide()">Divide</button>
-   </div>
+   
 </body>
 <script>
     let num1=document.getElementById("num1").value

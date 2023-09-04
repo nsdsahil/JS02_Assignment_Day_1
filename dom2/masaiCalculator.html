@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calc{ display:grid;
+               margin:auto;
+               justify-content:center;
+               padding-top:3%;
+               gap:10px;
+               grid-template-columns: repeat(4,22%);
+               grid-template-rows: repeat(4,20%);
+               
+               height: auto;
+               width:90%;}
+        #calc>div{
+                 
+                 border-radius:10px;
+                 text-align:center;
+                 line-height: 3;
+                 font-size:25px;
+                 color:black;
+                background-color: aliceblue;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                }
+        #main{
+              width:28%;
+              margin:auto;
+              height: 500px;
+              text-align:center;
+              box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+               }
+        #main>h1{   margin-top:10%;
+                      height:60px;
+                       width:72%;
+                     padding-left:2%;
+                     padding-right:5%;
+                     border-radius:10px;
+                     border:none;
+                     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                     margin:auto;
+                      }
+        #calc>div:nth-child(4){color:aliceblue;
+         background-color: black;}
+         #calc>div:nth-child(8){color:aliceblue;
+         background-color: black;}
+            #calc>div:nth-child(12){color:aliceblue;
+         background-color: black;}
+            #calc>div:nth-child(15){color:aliceblue;
+         background-color: black;}
+            #calc>div:nth-child(16){color:aliceblue;
+         background-color: black;}
+            #calc>div:nth-child(13){color:aliceblue;
+         background-color: rgb(222, 28, 2);}
+         h1{text-align: center;
+            font-size: 60px;
+            color:rgb(30, 141, 137);
+            margin-bottom:4%;
+        }
+        /* small screen */
+        @media all and (min-width:240px) and (max-width:720px){
+            #main{
+                width: 80%;
+            }
+        }
+        /* large screen */
+
+        @media all and (min-width:721px) and (max-width:1020px){
+            #main{
+                width: 60%;
+            }
+        }
+            
+        
+
+
+    </style>
+    
+</head>
+
+<body>
+    <h1>Masai Calculator</h1>
+    <div id="main">
+    <h1></h1>
+    <div id="calc">
+        
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>x</div>
+        <div>c</div>
+        <div>0</div>
+        <div id="enter">=</div>
+        <div>/</div>
+    </div>
+</div>
+</body>
+<script>
+    let display=document.querySelector("#main>h1")
+    let keys=document.querySelectorAll("#calc>div")
+    let calculate=document.querySelector("#enter")
+    let firstnum="";
+    for(let i=0;i<keys.length;i++)
+    {
+        if(keys[i].innerHTML=="=")
+        {
+            calculate.addEventListener("click",function(){
+                let ans= eval(firstnum);
+                display.innerHTML=ans;
+                firstnum=ans;
+            })
+    
+        }
+        else if(keys[i].innerHTML=="c")
+        {
+            keys[i].addEventListener("click",function(){
+                display.innerHTML="";
+                firstnum="";
+            })
+            
+        }
+        else 
+        {
+            keys[i].addEventListener("click",function(){
+                firstnum += event.target.innerHTML;
+                display.innerHTML=firstnum;
+            
+            })
+        }
+    }
+    
+
+</script>
+</html>

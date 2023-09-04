@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            display:block;
+            margin-top:2%;
+            height:35px;
+            font-size: 110%;
+            background-color:rgb(48, 48, 255);
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+        div{
+            width:25%;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            margin:auto;
+            padding:3%;
+        }
+    
+        @media all and (min-width:220px) and (max-width:720px){ 
+            div{
+                 width:80%;
+             }
+                 
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1>Check your BMI</h1>
+    <h2>Enter your weight and height below to check your BMI results</h2>
+
+    <h2>Put your weight in here(kg)</h2>
+    <input id="weight"type="text">
+    <h2>And your height in here (CM)</h2>
+    <input id="height" type="text">
+    <button >Calculate BMI</button>
+    <h2 id =display></h2>
+    </div>
+</body>
+<script>
+    let weight1 = document.querySelector("#weight")
+    let height2 = document.querySelector("#height")
+    let cal=document.querySelector("button")
+    let result
+    cal.addEventListener("click",function(){
+        result=weight1.value/(height2.value * height2.value*0.01*0.01);
+        if(result<=18.4) document.querySelector("#display").innerText="Your BMI is "+result+" which means you are uderweight"
+        else if(result >= 18.5 && result <= 24.9) document.querySelector("#display").innerText="Your BMI is "+result+" which means you are fit"
+        else if(result >= 25 && result <=29.9) document.querySelector("#display").innerText="Your BMI is "+result+" which means you are overweight"
+        else if(result >=30) document.querySelector("#display").innerText="Your BMI is "+result+" which means you are obsese"
+
+    })
+ 
+</script>
+</html>
