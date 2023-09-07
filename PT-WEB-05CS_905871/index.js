@@ -7,8 +7,8 @@ let email=document.querySelector("#email")
 let mbl=document.querySelector("#mbl")
 let docData=[]
 let formInput=document.querySelector("form");
-formInput.addEventListener("submit",insert)
-function insert(){
+formInput.addEventListener("submit",
+function (){
     event.preventDefault()
     // role
     let role=""
@@ -46,7 +46,7 @@ function insert(){
     docData.push(obj)
     formInput.reset()
     
-}
+})
 
 
 

@@ -16,15 +16,16 @@
       <!-- ***** We are using form here  ****  -->
       <form>
         <label for="">Employee Name</label><br />
-        <input id="name" type="text" placeholder="Enter Student Name" /><br />
+        <input id="name" type="text" placeholder="Enter Student Name" required/><br />
         <label for="">Employee ID</label><br />
         <input
           id="employeeID"
           type="number"
           placeholder="Enter Employee ID"
+          required
         /><br />
         <label for="">Department </label><br />
-        <select id="department">
+        <select id="department" required>
           <option value="">Select Department</option>
           <option value="Frontend">Frontend</option>
           <option value="Backend">Backend</option>
@@ -33,11 +34,11 @@
           <option value="IA">IA</option></select
         ><br />
         <label for="">Experience </label><br />
-        <input id="exp" type="number" placeholder="Experience in Years" /><br />
+        <input id="exp" type="number" placeholder="Experience in Years" required/><br />
         <label for="">Email Address </label><br />
-        <input type="text" id="email" placeholder="Enter Email Address" /><br />
+        <input type="text" id="email" placeholder="Enter Email Address" required/><br />
         <label for="">Mobile Number </label><br />
-        <input id="mbl" type="number" placeholder="Enter Mobile number" /><br />
+        <input id="mbl" type="number" placeholder="Enter Mobile number" required/><br />
         <input id="btn" type="submit" />
       </form>
       <table>
