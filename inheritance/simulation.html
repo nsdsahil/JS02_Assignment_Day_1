@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function vehicle(brand,model,speed,fuelType)
+    {
+        this.brand=brand;
+        this.model=model;
+        this.speed=speed;
+        this.fuelType=fuelType;
+    }
+
+    vehicle.prototype.accelerate=function(){
+        this.speed+=50;
+        console.log(`after applying accelator ${this.model} 's speed is ${this.speed}`);
+    }
+    vehicle.prototype.brake=function(){
+        this.speed-=50;
+        console.log(` after applying brake${this.model} 's speed is ${this.speed}`);
+
+    }
+    vehicle.prototype.refuel=function(){
+        console.log(`the vehicle is refueling`)
+    }
+
+    function car(brand,model,speed,fuelType,numberOfWheels){
+        vehicle.call(this,brand,model,speed,fuelType)
+        this.numberOfWheels=numberOfWheels;
+        this.honk=function(){
+            console.log(`honking`)
+        }
+    }
+
+    car.prototype=Object.create(vehicle.prototype);
+    let royalEnfield=new vehicle("royal","classicRoyalEnfield",100,"petrol",2);
+    let scorpio= new car("scorpio ","scorpioNKeySpace",110,"disel",4);
+    
+    console.log(royalEnfield);
+    royalEnfield.accelerate();
+    royalEnfield.brake();
+    royalEnfield.refuel();
+
+    console.log(scorpio);
+    scorpio.accelerate();
+    scorpio.brake();
+    scorpio.honk();
+    scorpio.numberOfWheels;
+    console.log(vehicle);
+    
+ 
+</script>
+</html>
