@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+</body>
+<script>
+
+    function autoMobile(year,engine){
+        this.manufacturingYear=year;
+        this.modelLaunchYear=year;
+        this.engine=engine;     
+    }
+      
+    autoMobile.prototype.brakeSystem=function(){
+        console.log(`ABS`);
+    };
+    autoMobile.prototype.security=function(){
+        console.log("Frontal Collision Warning System")
+        ;
+    }
+    let farari = new autoMobile(2023,"double cylinde compulsive engine")
+    console.log(farari.manufacturingYear);
+    console.log(farari.modelLaunchYear);
+    console.log(farari.engine);
+    farari.brakeSystem();
+    farari.security();
+  
+    let scorpio=Object.create(autoMobile.prototype);
+    scorpio.manufacturingYear=2024;
+    console.log(scorpio.manufacturingYear)
+    scorpio.modelLaunchYear=2024;
+    console.log(scorpio.modelLaunchYear)
+    scorpio.engine="single cylinder";
+    console.log(scorpio.engine);
+    scorpio.brakeSystem();
+    scorpio.security();
+
+
+
+
+
+
+</script>
+</html>
