@@ -1,5 +1,3 @@
-// bank management
-
 function bankAccount(accountNumber,name,type,balance,status)
 {
   this.accountNum=accountNumber;

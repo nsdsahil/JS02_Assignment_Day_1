@@ -1,0 +1,99 @@
+
+div{
+    
+    border-radius: 2%;
+}
+button{
+    border-radius: 5px;
+}
+
+body{
+
+    background-image: linear-gradient(rgb(255, 189, 66),white);
+}
+body>div{
+    height: auto;
+    display: flex;
+    width:90%;
+    margin:auto;
+    justify-content: space-between;
+    margin-top:3%;
+}
+#menu{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width:60%;
+    gap:2%;     
+    border:1px solid black;
+    padding-bottom: 3%;
+    border-color: aqua;
+}
+#menu>div{
+    background-color:white;
+    padding-left: 2%;
+    border-radius:10px;
+}
+#menu>div>button{
+    width:90%; 
+    background-color: orange;
+    color: white;
+    border:none; 
+    font-size:20px;
+    height:25px
+}
+#menu>div>img{
+    width:80%;
+    display:block;
+    margin:auto;
+
+}
+
+#status{
+    width:37%;
+    
+    position:relative;
+    text-align: center;
+    font-size: 150%;
+    height:auto;
+}
+#status>div{
+    background-color: white;
+}
+#display{
+    width:80%;
+    height:40%;
+    margin:auto;    
+    overflow-inline:clip;
+    overflow-y: scroll;
+    
+}
+#orders>tr>td>button{
+    border:none;
+    
+}
+#orders>tr>img{
+    width:80%;
+}
+#placeOrder{
+     margin:2%;
+    left:25%;
+    width:80%;
+    height:5%;
+    background-color: orange;
+    color:white;
+    border:none;
+    font-size: 120%; 
+
+    
+}
+.space{
+    height:100px
+}
+#pop-up{
+    display:block;
+    position:absolute;
+    bottom:50%;
+    top:50%;
+    left:20%;
+    
+}

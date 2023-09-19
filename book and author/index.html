@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
-</body>
-<script>
-function author(name,birthYear,nationality)
-{
-    this.name=name;
-    this.birthYear=birthYear;
-    this.nationality=nationality;
-}
-function book(title,author,genre,price)
-{
-    this.title=title;
-    this.author=author;
-    this.genre=genre;
-    this.price=price;
-    this.getBookInfo=function(){
-        console.log(`Book Details`)
-        
-        console.log( `Title : ${this.title}`);
-        console.log(`Author : ${this.author.name}`);
-        console.log(`Genre  : ${this.genre}`);
-        console.log(`Price  : ${this.price}`);
-        console.log("--------------------------------------------------------")
-    }
-}
-let author1 = new author("tim baneth",1986,"American")
-let book1=new book("the dark world",author1,"Horror Story","$24")
-book1.getBookInfo();
-let author2 = new author("james catine",1978,"French")
-let book2 = new book("golden egg",author2,"comic","$12")
-book2.getBookInfo();
-let author3 = new author("james catholic",1987,"Britisher")
-let book3 = new book("Batman",author3,"comic","$15")
-book3.getBookInfo();
-let author4 = new author("cane catholic",1989,"American")
-let book4 = new book("superman",author3,"comic","$75")
-book4.getBookInfo();
+    <div>
+        <h1>Book's Details</h1>
+        <form id="booksDetails" action="">
+            <label for="">Title</label>
+            <input id="title" type="text">
+            <label for="">Title</label>
+            <input type="text" id="title">
+            <h2>Author's Details</h2>
+            <form id="authorDetails" action="">
+                <label for="">Name</label>
+                <input type="text" id="authorName">
+                <label for="">Date of Birth</label>
+                <input type="date" id="dob">
+                <label for="">Nationality</label>
+                <input type="text " id="nationality">
+                <input type="submit">
+            </form>
+            <label for="">Genre</label>
+            <input type="text" id="genre">
+            <label for="">Price</label>
+            <input type="number" id="price">
 
+        
+        </form>
+    </div>
+</body>
+<script src="index.js">
 
 </script>
 </html>
