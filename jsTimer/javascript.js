@@ -11,7 +11,7 @@ document.querySelector("button").addEventListener("click",function(){
     if(runningInterval && input.value!=""){
         fetchTime();
         if(sec>0 && hr>=0 && min>=0){
-            interval=setInterval(start,100);
+            interval=setInterval(start,1000);
         runningInterval=false;
 
         }

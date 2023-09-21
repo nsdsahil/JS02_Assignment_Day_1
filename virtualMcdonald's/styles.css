@@ -1,45 +1,82 @@
 
+#heading{
+    display:flex;
+    background-color:rgb(255, 255, 255);
+    border-radius:0;
+    padding:1%;
+    width:100%;
+    position:fixed;
+    height:12%;
+    z-index: 1;
+    top:0;
+    left:0;
+    right:0;
+    margin-top: 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#heading>h1{
+    font-size: 70px;
+    margin-left: 3%;
+}
+#heading>img{ 
+    width:7%;
+
+}
 div{
     
     border-radius: 2%;
 }
+button:hover{
+    cursor: pointer;
+
+}
 button{
     border-radius: 5px;
+    border:none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 body{
 
     background-image: linear-gradient(rgb(255, 189, 66),white);
 }
-body>div{
+#sec1{
     height: auto;
     display: flex;
     width:90%;
     margin:auto;
     justify-content: space-between;
-    margin-top:3%;
+    margin-top:10%;
+
 }
 #menu{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    grid-template-rows:repeat(3,400px);
     width:60%;
     gap:2%;     
-    border:1px solid black;
+    
     padding-bottom: 3%;
-    border-color: aqua;
+    
 }
 #menu>div{
     background-color:white;
     padding-left: 2%;
     border-radius:10px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 #menu>div>button{
-    width:90%; 
+    width:95%; 
     background-color: orange;
     color: white;
     border:none; 
     font-size:20px;
-    height:25px
+    height:35px;
+    margin-top:5%;
+    position:absolute;
+    bottom:2%;
+    
 }
 #menu>div>img{
     width:80%;
@@ -50,10 +87,9 @@ body>div{
 
 #status{
     width:37%;
-    
-    position:relative;
+    position:fixed;
+    right:2%;
     text-align: center;
-    font-size: 150%;
     height:auto;
 }
 #status>div{
@@ -61,7 +97,7 @@ body>div{
 }
 #display{
     width:80%;
-    height:40%;
+    height: 500px;;
     margin:auto;    
     overflow-inline:clip;
     overflow-y: scroll;
@@ -82,7 +118,7 @@ body>div{
     background-color: orange;
     color:white;
     border:none;
-    font-size: 120%; 
+    font-size: 30px; 
 
     
 }
@@ -90,10 +126,85 @@ body>div{
     height:100px
 }
 #pop-up{
-    display:block;
+    height: 500px;
+    display:none;
     position:absolute;
     bottom:50%;
     top:50%;
-    left:20%;
+    left:30%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width:40%;
+    overflow-y: scroll;
+    padding:1%
     
+    
+}
+
+#pop-up>tr>img{
+    width:70%;
+}
+#pop-up>h1{
+    color:rgb(255, 145, 20);
+    text-align: center
+}
+.head-top-right{
+    text-align: right;
+    margin-left: 5%;
+}
+/* for small screen */
+@media all and (min-width:240px) and (max-width:540px){
+    #menu{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows:repeat(9,350px);
+        width:50%;
+        gap:8px;
+        
+    }
+    #display{
+        overflow-wrap: break-word;
+        width:90%;
+    }
+    #yourorder{
+        font-size: 25px;
+    }
+
+    #sec1{
+        width:100%;
+        margin-top: 30%;
+    }
+    #status{
+        width:49%
+    }
+  
+    #orders>tr>img{
+        width:100%;
+    }
+    #orders>tr>td{
+        font-size: 7px;
+    }
+    #pop-up{
+        height: 350px;
+        position:fixed;
+        bottom:50%;
+        top:50%;
+        left:5%;
+        width:80%;
+    }
+    #pop-up>img{
+        width:90%
+
+    }
+    #placeOrder{
+        height:2%;
+        font-size: 20px;
+    }
+
+    #heading>h1{
+        font-size: 45px;
+    }
+
+    #heading>img{
+        width:16%;
+    }
+
 }

@@ -11,7 +11,11 @@
     
 </head>
 <body>
-    <div>
+    <div id="heading">
+        <img src="https://hrpl-production-mds-assets.s3.ap-south-1.amazonaws.com/logo/McDeliveryLogo.png" alt="">
+        <h1>McDonald’s</h1>
+    </div>
+    <div id="sec1">
     <div id="menu">
         <div>
             <img class="image" src="https://c38blhej2h.execute-api.ap-south-1.amazonaws.com/dev/jpg/228/1686190155142928.jpg" alt="">
@@ -80,7 +84,7 @@
     </div>
     <div id="status">
         <div id="display">
-        <h1>Your Orders</h1>
+        <h1 id="yourorder">Your Orders</h1>
         <table>
             <tbody id="orders">
 
@@ -89,9 +93,11 @@
         </table>
         </div>
         <button id="placeOrder"><i class="fa fa-shopping-cart" style="font-size:36px"></i>  <span>Place Order</span></button>
+        <h3 id="warn"></h3>
     </div>
     </div>
-    <div style="background-color: white;" id="pop-up">
+    <div style="background-color: rgb(255, 255, 255);" id="pop-up">
+        <h1>Orders Ready</h1>
 
     </div>
 </body>

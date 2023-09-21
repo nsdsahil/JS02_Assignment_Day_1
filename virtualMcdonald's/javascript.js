@@ -7,10 +7,15 @@
  let display= document.querySelector("#display");
  let ordersTable=document.querySelector("#orders");
  let popUp=document.querySelector("#pop-up");
- let tempArr=[]
+ let warn=document.getElementById("warn")
+ let tempArr=[];
+ let ids=[];
+ let flag=false;
  
  for(let i=0;i<btn.length;i++){
     btn[i].addEventListener("click",function(){
+        flag=true;
+        if(flag){
         let temp={};
         temp.OrderId=++orderId;
         temp.name=food[i].innerText;
@@ -27,14 +32,18 @@
          tableRow.append(tableData);
          ordersTable.append(tableRow);
          tempArr.push(tableRow)
-        
+         ids.push(temp.OrderId)
+        }
+        else{
+            warn.innerText="wait untill your previous order processing"
+
+        }
     }) 
 }
 
 
 document.getElementById("placeOrder").addEventListener("click",function(){
-    console.log(tempArr)
-
+    if(flag){
     for(let i=0;i<tempArr.length;i++){
         let statusBtn=document.createElement("button");
         statusBtn.innerText="processing";
@@ -54,17 +63,34 @@ document.getElementById("placeOrder").addEventListener("click",function(){
                 statusBtn.innerText="Ready";
                 statusBtn.style.backgroundColor="green"
                 statusBtn.style.color="white";
+                let heading=document.createElement("h2")
+                heading.className="head-top-right"
+                heading.innerText=` Order Id: ${ids[i]}`
+                popUp.append(heading)
                 popUp.append(tempArr[i])
                 popUp.style.display="block"
+                popUp.style.backgroundColor="white";
                 setTimeout(function(){
-                    popUp.style.display="none"
-                },5000)
+                    popUp.style.display="none";
+                    flag=true;
+                    popUp.innerHTML="";
+                    warn.innerText="Please order again"
+                    tempArr=[]
+                    console.log(flag)
+                },6000)
                 
             }
+            
 
             })
         
     }
+    flag=false;
+}
+else{
+    warn.innerText="please wait for some time "
+
+}
 })
 
 
