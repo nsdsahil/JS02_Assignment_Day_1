@@ -1,0 +1,31 @@
+#main{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:15px;
+    width:40%;
+    margin:auto;
+
+}
+body{
+    text-align: center;
+}
+button{
+    color:white;
+    background-color: rgb(64, 125, 255);
+    border:none;
+    font-size: 20px;
+    width: 10%;
+    height: 20%;
+    border-radius: 5px;
+    text-align: center;
+}
+.avatar{
+    display:block;
+    margin:auto;
+}
+.card{
+    padding: 2%;
+    text-align: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 10px;
+}
