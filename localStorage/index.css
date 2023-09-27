@@ -1,0 +1,21 @@
+#getdata{
+    width:20%;
+    font-size: 15px;
+    border:none;    
+    height:6%;
+    color:white;
+    background-color: rgb(34, 166, 254);
+}
+#display{
+    margin-top: 2%;
+    width:20%;
+    height:400px;
+    border:1px black solid;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  td{
+    width:5%;
+  }
