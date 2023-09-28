@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 46px;
+        }
+        #display{
+            width:90%;
+            height:70px;
+            margin:auto;
+            margin-bottom: 25%;
+            background-color: rgb(234, 234, 234);
+            font-size: 35px;
+
+        }
+        #counter{
+            padding:1%;
+            width:20%;
+            margin:auto;
+            height:250px;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+            
+
+            text-align: center;
+        }
+        button{
+            padding:2%;
+            text-align: center;
+            width:auto;
+            height: 35px;
+            font-size: 20px;
+            border-radius: 10px;
+            border:none;
+            background-color: rgb(0, 153, 255);
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter</h1>
+    <div id="counter">
+    <div id="display"></div>
+    <button id="start">Start</button>
+    <button id="inc">Increment</button>
+    <button id="dec">Decrement</button>
+    </div>
+
+</body>
+<script>
+    let start=document.getElementById("start");
+    let inc=document.getElementById("inc");
+    let dec=document.getElementById("dec");
+    let display=document.getElementById("display");
+    
+    class counter{
+        constructor(){
+            this.count=0;
+            this.runInterval=true;
+            this.counting;
+
+        }
+        start(){
+            this.counting=setInterval(() => {
+                this.count++;
+                this.display();
+
+                
+            },1000);
+        }
+        display(){
+            display.textContent=this.count;
+            
+        }
+        stop(){
+
+            clearInterval(this.counting);
+            
+        }
+        increment(){
+            this.stop();
+            this.count++;
+            this.display();
+        }
+        decrement(){
+            if(this.count<=0){
+                return;
+            }
+            else{
+                this.stop();
+                this.count--;
+                this.display();
+
+            }
+            
+        }
+    }
+    let Counter= new counter();
+
+    start.onclick=()=>{
+        if(Counter.runInterval)
+        {
+            Counter.runInterval=false;
+            start.textContent="stop";
+            Counter.start();
+        }
+        else{
+
+            Counter.runInterval=true;
+            start.textContent="start"
+            Counter.stop()
+        } 
+    }
+    inc.onclick=()=>{
+        Counter.increment();
+    }
+    dec.onclick=()=>{
+        Counter.decrement();
+    }
+
+</script>
+</html>
