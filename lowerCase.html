@@ -7,11 +7,20 @@
 </head>
 <body>
     <script >
+        let lowerChar=(char)=>{
+            let tempStr=char.toLowerCase()
+            return tempStr
+        }
+        let lowerString=(word)=>{
+            let tempStr=lowerChar(word)
+            return tempStr
+            
+        }
     
         let convertLower=arr=>{
             let newArr=[];
             arr.forEach(element=> {
-                newArr.push(element.toLowerCase());
+                newArr.push(lowerString(element));
             });
             return newArr;
         }
