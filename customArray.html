@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function CustomArray() {
+  
+  var length = elementsEntered.length;
+  this.size = length;
+  for (var i = 0; i < length; i++) {
+    this[i] = elementsEntered[i];
+  }
+}
+
+
+CustomArray.prototype = {
+  
+  push: function (element) {
+    this[this.size] = element;
+    this.size++;
+  },
+
+ 
+  pop: function () {
+    if (this.size > 0) {
+      delete this[this.size - 1];
+      this.size--;
+    }
+  },
+
+  top: function () {
+    if (this.size > 0) {
+      return this[this.size - 1];
+    }
+  },
+
+  print: function () {
+    var result = '[';
+    for (var i = 0; i < this.size; i++) {
+      result += this[i];
+      if (i < this.size - 1) {
+        result += ',';
+      }
+    }
+    result += ']';
+    console.log(result);
+  },
+
+  printReverse: function () {
+    var result = '[';
+    for (var i = this.size - 1; i >= 0; i--) {
+      result += this[i];
+      if (i > 0) {
+        result += ',';
+      }
+    }
+    result += ']';
+    console.log(result);
+  },
+};
+
+var myArray = new CustomArray(1, 2, 3, 4);
+
+myArray.push(5);
+myArray.pop();
+console.log(myArray.top()); 
+myArray.print(); 
+myArray.printReverse(); 
+console.log(myArray.size); 
+</script>
+</html>
