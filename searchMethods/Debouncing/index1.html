@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href=https://fonts.google.com/specimen/Poppins>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="navbar">
+        <h1 style="font-style:specimen/Dela+Gothic+One;">OmdB Movies</h1>
+
+    </div>
+    <div id="sec1">
+    <input type="text" placeholder="Search a movie" id="search"><Button id="search-button">Search</Button>
+    </div>
+    <div id="root">
+
+
+    </div>
+    
+</body>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel"> 
+
+    let rootElement=document.getElementById("root");
+    let search=document.getElementById("search");
+    let searchButton=document.getElementById("search-button")
+
+    // fetching Data 
+
+    function getData(){
+        fetch(`https://www.omdbapi.com/?apikey=8d08c9f9&s=${search.value}`)
+        .then((res)=>{
+            console.log(res)
+            return res.json()
+        })
+        .then((res)=>{
+            let data=res.Search;
+            printData(data);
+        })
+        .catch((error)=>
+        {
+            console.log(error)
+        })
+    }
+    
+    searchButton.addEventListener("click",function(){
+        rootElement.innerHTML="";
+        getData();
+    
+    })
+
+    // Debounced Search
+
+    function debouncing(){
+        let time;
+        return ()=>{
+            clearTimeout(time)
+            time=setTimeout(startSearch,500)
+        }
+    }
+    let debouncedSearch=debouncing();
+    search.addEventListener("input",()=>{
+        rootElement.innerHTML="";
+        debouncedSearch();
+
+    })
+
+    function startSearch(){
+    getData();
+    }
+
+    //  print searched Data
+
+    function printData(data){
+        data.forEach((movie)=>{
+            console.log(data)
+    
+            const card=(
+                <div className="card">
+                <p>movie.Title</p>
+                <p>movie.Year</p>
+                <img src={movie.Poster} className="poster" alt=""/>
+                <p>movie.Type</p>
+                <p>movie.imdbID</p>
+                </div>
+                )
+            
+            const reactRoot=ReactDOM.createElement(rootElement);
+            reactRoot.render(card);
+        })
+    }
+
+
+</script>
+</html>

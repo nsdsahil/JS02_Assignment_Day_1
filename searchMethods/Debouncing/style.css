@@ -1,0 +1,54 @@
+#root{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:25px;
+    width:70%;
+    margin:auto;
+    
+}
+body{
+    font-family:"Poppins";
+}
+.card{
+    border-radius: 10px;
+    padding:5%;
+    text-align: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.poster{
+    width:100%;
+    display: block;
+    margin:auto;
+}
+#search{
+    width:30%;
+    height: 40px;
+    font-size: 25px;
+    border:none;
+    background-color: rgb(246, 246, 246)
+}
+#search-button{
+    margin-left: 1%;
+    border:none;
+    width:10%;
+    height:40px;
+    font-size: 25px;
+    border-radius: 5px;
+    color:white;
+    background-color: rgb(24, 105, 255);
+}
+#navbar{
+    padding:0;
+    font-size:35px;
+    color:white;
+    height:115px;
+    background-color: rgb(24, 105, 255);
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+}
+#sec1{
+    text-align: center;
+    margin:10%;
+}
