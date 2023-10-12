@@ -1,0 +1,133 @@
+#list{
+    position:absolute;
+    top:50%;
+    left:30%;
+    
+    z-index:1;
+    display:none;
+    grid-template-columns:repeat(1,1fr);
+    grid-template-rows: repeat(300px);
+    row-gap:10px;
+    width:35%;
+    height:700px;
+    overflow-y: scroll;
+    border-radius: 10px;
+    background-color: white;
+    
+    
+}
+.product-layout{
+    display:grid;
+    
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    width:60%;
+    margin:auto;
+    
+}
+#best-meals{
+    margin-left:5%;
+    margin-top:50%;
+    font-size: 60px;
+}
+#heading-search-result{
+    font-size:60px;
+    margin-left:5%;
+}
+
+#search-result{
+    display:none;
+}
+.product{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 10px;
+}
+.product-poster{
+    width:100%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.list-poster{
+    width:35%;
+    height:300px;
+     
+    
+}
+.product-poster{
+    width:50
+
+}
+.list-item{
+    display: flex;
+    justify-content:flex-start;
+    
+}
+.list-item:hover{
+    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    
+}
+.card>h1,p{
+    margin-left:5%;
+
+}
+header{
+    z-index:2;
+    padding:1%;
+    padding-left:5%;
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background-color:rgba(255, 255, 255, 0.267);
+}
+.logo{
+    font-family:Autour One;
+    font-size: 45px;
+    font-weight: 900;
+}
+#search{
+    width:30%;
+    border-radius: 10px;
+    border:none;
+    height:60px;
+    font-size:30px;
+    margin-left:2%;
+    color:rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.519);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+#search-button{
+    width:100px;
+    height:60px;
+    font-size:25px;
+    border-radius:10px;
+    border:none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
+    
+}
+#cover{
+    
+    z-index: -1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:absolute;
+    margin:0;
+    height:700px;
+    background-image: url(https://images.pexels.com/photos/3219483/pexels-photo-3219483.jpeg?auto=compress&cs=tinysrgb&w=1600);
+    background-size: cover;
+    width:100%;
+    top:0;
+    left:0;
+    right:0;
+}
+.margin-left{
+    margin-left:5%;
+}
+
+

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Autour+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The MealIDB</title>
+</head>
+<body>
+    <header>
+        <img src="https://cdn-icons-png.flaticon.com/128/45/45332.png" alt="">
+        <div class="logo">Taste Point</div>
+        
+        
+
+    </header>
+    <section id="cover">
+        <input id="search" placeholder="Search a Meal" type="search">
+        <button id="search-button">Search</button>
+
+    </section>
+
+    <div id="list">
+
+
+
+    </div>
+    <div id="search-result" class="product-layout">
+        <h1 id="heading-serach-result"></h1>
+
+    </div>
+    <h1 id="best-meals">Our Best Meals</h1>
+    <section id="best-products" class="product-layout">
+    </section>
+    
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    let list=document.getElementById("list");
+    let searchedMeal=document.getElementById("search");
+    let searchButton=document.getElementById("search-button");
+    let reactRoot;
+    let bestProducts=document.getElementById("best-products");
+    let result=document.getElementById("search-result");
+    let headingBestMeals=document.getElementById("best-meals");
+    let headingSerachResult=document.getElementById("heading-serach-result")
+
+
+
+    // suggestionBox
+
+    async function getData(){
+        try{
+            let res= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchedMeal.value}`)
+            let data= await res.json();
+            suggestionList(data);
+
+        }
+        catch(error){
+            console.log(error)
+        
+        }
+    }
+
+    searchedMeal.addEventListener("input",()=>{
+        list.innerHTML="";
+        if(searchedMeal.value==""){
+            list.innerHTML="";
+            list.style.display="none"
+        }
+        else
+        {
+            list.style.display="grid"
+            throttleSearch(searchedMeal.value);
+        }
+
+
+    })
+
+    function throttlingSearch(){
+        let throttling=false;
+        return(meal)=>{
+            if(throttling==false) 
+            {
+            throttling=true;
+            getData(meal)
+            setTimeout(()=>throttling=false,500)
+        }
+        }
+    }
+    const throttleSearch=throttlingSearch()
+   
+    function suggestionList(data){
+        console.log(data)
+        reactRoot=ReactDOM.createRoot(list)
+        const cards=data.meals.map((Meal)=>(
+                <div className="list-item">
+                    <img src= {Meal.strMealThumb} className="list-poster" alt=""/>
+                    <div>
+                    <h1 className="title">{Meal.strMeal}</h1>
+                    
+                    <p><b>category</b>: {Meal.strCategory}</p>
+                    <p><b>{Meal.strArea} Dish</b></p>
+                    
+                    <p><b>Ingredients</b>: {Meal.strIngredients1}</p>
+                    </div>
+                    
+                </div>
+                
+            ))
+            reactRoot.render(cards)
+    }
+
+    // search Meal
+
+    async function getData2(){
+        try{
+            let res= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchedMeal.value}`)
+            let data= await res.json();
+            printData(data);
+
+        }
+        catch(error){
+            console.log(error)
+        
+        }
+    }
+    function printData(data){ 
+        console.log(data)
+        reactRoot=ReactDOM.createRoot(bestProducts)
+        const cards=data.meals.map((Meal)=>(
+                <div className="product">
+                    <img src= {Meal.strMealThumb} className="product-poster" alt=""/>
+                    <div>
+                    <h1 className="title">{Meal.strMeal}</h1>
+                    
+                    <p><b>category</b>: {Meal.strCategory}</p>
+                    <p><b>{Meal.strArea} Dish</b></p>
+                    
+                    <p><b>Ingredients</b>: {Meal.strIngredients1}</p>
+                    </div>
+                    
+                </div>
+                
+            ))
+            reactRoot.render(cards)
+    }
+    // display product
+    getData2();
+
+    searchButton.onclick=()=>{
+        searchedMeal.value="";
+        list.innerHTML="";
+        list.style.display="none"
+        
+        result.style.display="grid";
+        getData3();
+    }
+    async function getData3(){
+        try{
+            let res= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchedMeal.value}`)
+            let data= await res.json();
+            searchData(data);
+            headingBestMeals.style.marginTop="0px";
+            result.style.marginTop="50%";
+            headingSerachResult.textContent="Search Result"
+
+        }
+        catch(error){
+            console.log(error)
+        
+        }
+    }
+    function searchData(data){ 
+        const reactRoot=ReactDOM.createRoot(result)
+        const cards=data.meals.map((Meal)=>(
+                <div className="product">
+                    <img src= {Meal.strMealThumb} className="product-poster" alt=""/>
+                    <div>
+                    <h1 className="title">{Meal.strMeal}</h1>
+                    
+                    <p><b>category</b>: {Meal.strCategory}</p>
+                    <p><b>{Meal.strArea} Dish</b></p>
+                    
+                    <p><b>Ingredients</b>: {Meal.strIngredients1}</p>
+                    </div>
+                    
+                </div>
+                
+            ))
+            reactRoot.render(cards)
+            
+
+    }
+    
+    
+</script>
+</html>

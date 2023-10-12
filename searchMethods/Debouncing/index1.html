@@ -78,22 +78,21 @@
     //  print searched Data
 
     function printData(data){
-        data.forEach((movie)=>{
-            console.log(data)
+        console.log(data); 
+        const reactRoot=ReactDOM.createRoot(rootElement);
     
-            const card=(
+            const cards=data.map((movie)=>(
+               
                 <div className="card">
-                <p>movie.Title</p>
-                <p>movie.Year</p>
                 <img src={movie.Poster} className="poster" alt=""/>
-                <p>movie.Type</p>
-                <p>movie.imdbID</p>
+                <p>{movie.Title}</p>
+                <p>{movie.Year}</p>
+                <p>{movie.Type}</p>
+                <p>{movie.imdbID}</p>
                 </div>
-                )
-            
-            const reactRoot=ReactDOM.createElement(rootElement);
-            reactRoot.render(card);
-        })
+                ))
+        reactRoot.render(cards);
+       
     }
 
 
